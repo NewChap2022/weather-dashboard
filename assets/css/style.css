@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --primary: #264653;
+    --secondary: #2a9d8f;
+    --tertiary: #e9c46a;
+    --white: #ffffff;
+}
+
+.hero {
+    background-color: var(--primary);
+    background-image: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 35%, var(--tertiary) 100%);
+    text-align: center;
+    color: var(--white);
+    padding: 20px;
+}
+
+#app-title {
+    font-family: 'Indie Flower', cursive;
+    font-size: 45px;
+}
+
+.hero p {
+    font-family: 'Yuji Mai', serif;
+}
+
+.search-container {
+    font-family: 'Yuji Mai', serif;
+}
+
+.search-container h3,
+.weather-container h3 {
+    font-weight: bold;
+}
+
+#cityname {
+    border-color: var(--secondary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.searchbtn {
+    background-color: var(--secondary);
+    background-image: radial-gradient(circle, var(--primary) 0%, var(--secondary) 35%, var(--tertiary) 100%);
+    font-size: 20px;
+    transition: all .5s ease-out;
+    border: none;
+    color: var(--white);
+}
+
+.searchbtn:hover {
+    background-color: var(--tertiary);
+    background-image: radial-gradient(circle, #e76f51 0%, #f39f60 35%, var(--tertiary) 100%);
+}
+
+.weather-container {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.currentweather {
+    border: 3px solid var(--primary);
+    width: 100%;
+    min-height: 225px;
+}
+
+#search-city-name {
+    font-size: 30px;
+    font-weight: bolder;
+    color: var(--secondary);
+}
