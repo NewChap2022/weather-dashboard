@@ -14,6 +14,9 @@ Design a weather dashboard to display a city's current weather and 5-day forecas
 ## Language used
 html, css(bootstrap), javascript
 
+## API used
+Open Weather API
+
 ## Reflection
 Every API has its own way to obtain the data. Reading through the document and understanding how to use it is vital. I used one of the weather data collection in the beginning. But the data does not include the UV Index. However, the one with UV Index only accepts the location but not the city name. Therefore two fetches have to be made to meet the criteria needs. Bootstrap helps a lot in making the page responsive.
 
