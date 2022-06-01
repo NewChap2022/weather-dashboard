@@ -57,6 +57,9 @@ var displayCityName = function (data) {
 }
 
 var displayCurrentWeather = function (data) {
+    while (currentWeatherEl.firstChild) {
+        currentWeatherEl.removeChild(currentWeatherEl.firstChild);
+    };
 
     // display current date
     var date = moment().format("MMM Do YYYY");
@@ -110,6 +113,10 @@ var displayCurrentWeather = function (data) {
 };
 
 var display5DayForecast = function (data) {
+    while (forecastEl.firstChild) {
+        forecastEl.removeChild(forecastEl.firstChild);
+    };
+
     for (var i = 0; i < 5; i++) {
         var forecastCardEl = document.createElement("div");
         forecastCardEl.classList.add("forecast-card", "col-12", "col-sm-4", "col-lg");
@@ -151,7 +158,7 @@ var addNewSearchHistory = function (data) {
     var city = data[0].name.toUpperCase();
     var matchIndex = searchHistory.indexOf(city);
 
-    if (matchIndex === -1 & searchHistory.length <=9) {
+    if (matchIndex === -1 & searchHistory.length <= 9) {
         searchHistory.push(city);
         displaySearchHistory(city);
         return;
