@@ -14,7 +14,7 @@ var getCityWeather = function (city) {
             response.json().then(function (data) {
                 addNewSearchHistory(data);
                 displayCityName(data);
-                // https://api.openweathermap.org/data/2.5/onecall?lat=43.6534817&lon=-79.3839347&exclude=minutely,hourly,daily&appid=e10a1bcf5d67a6b3f71484bd7a8c46d2
+            
                 var secondApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&exclude=minutely,hourly,alerts&units=metric&appid=" + apiKey;
                 fetch(secondApiUrl).then(function (response) {
                     if (response.ok) {
@@ -104,6 +104,7 @@ var displayCurrentWeather = function (data) {
         uvIndex.style.backgroundColor = "green";
     } else if (uvi >= 3 && uvi <= 5) {
         uvIndex.style.backgroundColor = "yellow";
+        uvIndex.style.color = "black";
     } else {
         uvIndex.style.backgroundColor = "red";
     };
@@ -171,7 +172,7 @@ var addNewSearchHistory = function (data) {
         searchHistory.splice(matchIndex, 1);
         console.log(searchHistory);
     } else {
-        searchHistory = searchHistory.shift();
+        searchHistory.shift();
     };
 
     searchHistory.push(city);
