@@ -84,6 +84,7 @@
 .search-history {
     border-top: 5px solid var(--primary);
 }
+
 .search-history-button {
     width: 100%;
     border: none;
@@ -92,4 +93,10 @@
     background-color: var(--tertiary);
     color: var(--white);
     margin-bottom: 10px;
+}
+
+.search-history-button:hover {
+    border-radius: 10px;
+    background-color: var(--secondary);
+    transition: all .5s ease-out;
 }
