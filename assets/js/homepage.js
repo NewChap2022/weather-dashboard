@@ -161,23 +161,30 @@ var addNewSearchHistory = function (data) {
     if (matchIndex === -1 & searchHistory.length <= 9) {
         searchHistory.push(city);
         displaySearchHistory(city);
+        localStorage.setItem("search", JSON.stringify(searchHistory));
         return;
     } else if (matchIndex !== -1) {
-        array.push(array.splice(matchIndex, 1)[0]);
+        searchHistory.splice(matchIndex, 1);
+        console.log(searchHistory);
     } else {
-        searchHistory.shift();
-        searchHistory.push(city);
-    }
+        searchHistory = searchHistory.shift();
+    };
+
+    searchHistory.push(city);
+
+    while (searchHistoryEl.firstChild) {
+        searchHistoryEl.removeChild(searchHistoryEl.firstChild);
+    };
 
     for (var i = 0; i < searchHistory.length; i++) {
         displaySearchHistory(searchHistory[i]);
-    }
-    localStorage.setItem("search", searchHistory);
+    };
+    
+    localStorage.setItem("search", JSON.stringify(searchHistory));
 }
 
 var loadSearchHistory = function () {
     searchHistory = localStorage.getItem("search");
-    console.log(searchHistory)
     if (!searchHistory) {
         searchHistory = [];
     } else {
