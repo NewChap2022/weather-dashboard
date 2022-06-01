@@ -57,9 +57,11 @@ var displayCityName = function (data) {
 }
 
 var displayCurrentWeather = function (data) {
-    while (currentWeatherEl.firstChild) {
-        currentWeatherEl.removeChild(currentWeatherEl.firstChild);
-    };
+    if (currentWeatherEl.childElementCount > 1) {
+        for (var i = 0; i < 3; i++) {
+            currentWeatherEl.removeChild(currentWeatherEl.lastChild);
+        };
+    }
 
     // display current date
     var date = moment().format("MMM Do YYYY");
@@ -113,8 +115,10 @@ var displayCurrentWeather = function (data) {
 };
 
 var display5DayForecast = function (data) {
-    while (forecastEl.firstChild) {
-        forecastEl.removeChild(forecastEl.firstChild);
+    if (forecastEl.childElementCount > 1) {
+        for (var i = 0; i < 5; i++) {
+            forecastEl.removeChild(forecastEl.lastChild);
+        };
     };
 
     for (var i = 0; i < 5; i++) {
@@ -179,7 +183,7 @@ var addNewSearchHistory = function (data) {
     for (var i = 0; i < searchHistory.length; i++) {
         displaySearchHistory(searchHistory[i]);
     };
-    
+
     localStorage.setItem("search", JSON.stringify(searchHistory));
 }
 
