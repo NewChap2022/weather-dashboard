@@ -201,4 +201,10 @@ var loadSearchHistory = function () {
 
 loadSearchHistory()
 userFormEl.addEventListener("submit", formSubmitHandler);
-
+searchHistoryEl.addEventListener("click", function (event) {
+    console.log(event.target);
+    if (event.target.matches(".search-history-button")) {
+        var cityName = event.target.innerHTML.trim();
+        getCityWeather(cityName);
+    }
+});
