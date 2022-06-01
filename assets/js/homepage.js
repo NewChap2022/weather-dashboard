@@ -75,31 +75,28 @@ var displayCurrentWeather = function (data) {
     var date = moment().format("MMM Do YYYY");
     var dateEl = document.createElement("p");
     dateEl.textContent = date;
-    currentWeatherEl.appendChild(dateEl);
 
     // display current weather
     var weatherIconEl = document.createElement("div");
     var weatherIcon = document.createElement("img");
     weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png");
     weatherIcon.setAttribute("alt", "current weather is " + data.current.weather[0].main);
-    currentWeatherEl.appendChild(weatherIconEl);
-    weatherIconEl.appendChild(weatherIcon);
-
+    
     var weatherDataEl = document.createElement("div");
     weatherDataEl.className = "row";
-
+    
     var tempData = document.createElement("p");
     tempData.className = "col-md-6";
     tempData.textContent = "Temp: " + Math.round(data.current.temp) + " °C";
-
+    
     var windData = document.createElement("p");
     windData.className = "col-md-6";
     windData.textContent = "Wind: " + data.current.wind_speed + " m/s";
-
+    
     var humidityData = document.createElement("p");
     humidityData.className = "col-md-6";
     humidityData.textContent = "Humidity: " + data.current.humidity + " %";
-
+    
     var uvIndexData = document.createElement("p");
     uvIndexData.className = "col-md-6";
     uvIndexData.textContent = "UV Index: ";
@@ -116,10 +113,11 @@ var displayCurrentWeather = function (data) {
     } else {
         uvIndex.style.backgroundColor = "red";
     };
-
+    
+    weatherIconEl.appendChild(weatherIcon);
     uvIndexData.appendChild(uvIndex);
     weatherDataEl.append(tempData, windData, humidityData, uvIndexData);
-    currentWeatherEl.append(dateEl, weatherDataEl);
+    currentWeatherEl.append(dateEl, weatherIconEl, weatherDataEl);
 };
 
 // display 5 day forecast in the forecast container
