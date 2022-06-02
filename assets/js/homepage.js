@@ -130,7 +130,7 @@ var displayCurrentWeather = function (data) {
     }
 
     // display current date
-    var date = moment().format("MMM Do YYYY");
+    var date = dayjs().format("dddd DD-MMM-YYYY");
     var dateEl = document.createElement("p");
     dateEl.textContent = date;
 
@@ -192,7 +192,7 @@ var display5DayForecast = function (data) {
         forecastCardEl.classList.add("forecast-card", "col-12", "col-sm-4", "col-lg");
 
         var dateEl = document.createElement("p");
-        date = moment().add(i + 1, 'd').format("MMM Do YYYY");
+        date = dayjs().add(i + 1, 'd').format("DD-MMM-YYYY");
         dateEl.textContent = date;
 
         var weatherIconEl = document.createElement("div");
